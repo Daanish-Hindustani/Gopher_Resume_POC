@@ -8,8 +8,13 @@
 
 ## Get Started
  1. Create a venv and install the requirments
+    - python -m venv myenv
+    - source myenv/bin/activate
  2. Create a .env file with local postgress db
- 3. run docker-compose up --build
+    Note: if your using postgress but not docker change host name to local not db(use if using docker)
+ 3. run docker-compose up --build 
+    Note: if you are running locally use python manage.py runserver 0.0.0.0:8000
+    
 ## Project overview
 - https://docs.google.com/document/d/1gOhVWaR7HDh7IOWJsWR9jCSXtPSMf91iCrLCiMsao-w/edit?usp=sharing
 

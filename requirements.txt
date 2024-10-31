@@ -7,3 +7,4 @@ sqlparse==0.4.4
 celery==5.2.7
 python-decouple==3.6
 redis==4.3.4
+Pillow==11.0.0
