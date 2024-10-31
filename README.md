@@ -1,6 +1,7 @@
 # Gopher Marketplace
-
-![images](https://github.com/user-attachments/assets/90c37c92-68aa-44c2-b8eb-9b707ecb27ec)
+![Alt text](https://github.com/Daanish-Hindustani/Gopher_Marketplace/blob/main/readme_imgs/login.png?/raw=true)
+![Alt text](https://github.com/Daanish-Hindustani/Gopher_Marketplace/blob/main/readme_imgs/main.png?/raw=true)
+![Alt text](https://github.com/Daanish-Hindustani/Gopher_Marketplace/blob/main/readme_imgs/detail_view.png?/raw=true)
 
 ## Description
  -This Project is an centralized ecommerce website for UMN students to sell different products such as books, clothing, lab equipment, tech, and anything else while retaining 100% of the profit. 
