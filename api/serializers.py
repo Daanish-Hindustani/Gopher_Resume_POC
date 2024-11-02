@@ -3,8 +3,9 @@ from .models import Product
 from django.contrib.auth.models import User
 
 class ProductSerializer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source='user.username')
+    user_name = serializers.ReadOnlyField(source='user.username')
     email = serializers.ReadOnlyField(source='user.email')
+   
     class Meta:
         model = Product
         fields = (
@@ -16,12 +17,13 @@ class ProductSerializer(serializers.ModelSerializer):
             'professor',  # Name of the professor, optional
             'category',  # Category of the product
             'price',  # Price of the product
-            'user',
+            'user_name',
             'email',
+            'user',
             'created_at',  # Timestamp when the product was created
             'sold',  # Boolean indicating if the product is sold
-        )
-
+        ) 
+        
 class UserSerializer(serializers.ModelSerializer):
     products = serializers.PrimaryKeyRelatedField(many=True, queryset=Product.objects.all())
 

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
 from .models import Product
+from rest_framework.permissions import IsAuthenticated
 from .serializers import ProductSerializer, UserSerializer
 from rest_framework.renderers import JSONRenderer
 from django.contrib.auth.models import User
@@ -38,20 +39,3 @@ class UserList(generics.ListCreateAPIView):
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
-# @cache_page(60 * 10)
-# def ProductListPage(request):
-#     logger.info("/product list page got called..")
-#     try:
-#         products = Product.objects.all()
-#         for product in products:
-#             product.img = str(product.img).split('/')[-1]
-#     except ObjectDoesNotExist as e:
-#         logger.error(e.message)
-#         raise Http404
-#     return render(request, 'journal/list.html', {'articles':products})
-
-# @cache_page(60 * 30)
-# def ProductDetailPage(request, pk):
-#     logger.info("/product details page got called for pk", pk)
-#     return render(request, 'journal/detail.html', {'product_id':pk} )
