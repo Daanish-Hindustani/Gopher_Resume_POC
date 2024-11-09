@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #890000;
+            color: #ffffff;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Marketplace text styling */
+        .marketplace-text {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            font-weight: bold;
+            color: #FFDA14;
+            padding-left: 3%;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .g_id_signin {
+            margin-top: 20px;
+        }
+
+        /* Welcome text styling */
+        .welcome-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Google sign-in button styling */
+        .btn-signin {
+            background-color: #ffffff;
+            color: #890000;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-signin:hover {
+            background-color: #FFDA14;
+            color: #000000;
+            cursor: pointer;
+        }
+
+        /* Image at the bottom left */
+        .bottom-left-image {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 300px; 
+            height: auto;
+        }
+
+        /* Centered content styling */
+        .centered-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            height: 100%;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Media Query for smaller screens */
+        @media (max-width: 767px) {
+            .marketplace-text {
+                font-size: 2.5rem;
+            }
+
+            .bottom-left-image {
+                width: 200px;
+            }
+
+            .welcome-text {
+                font-size: 2rem;
+            }
+
+            .btn-signin {
+                font-size: 1.2rem;
+                padding: 10px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Marketplace Text -->
+    <div class="marketplace-text">Gopher<br>Marketplace</div>
+
+    <!-- Centered Content -->
+    <div class="centered-content">
+        <div class="welcome-text">Welcome, Gopher!</div>
+        
+        
+        
+        {% if request.session.user_data %}
+        <div class="mt-4">
+            <p>Hi {{ request.session.user_data.given_name }} 🙂</p>
+            <p>Your email: {{ request.session.user_data.email }}</p>
+            <img src="{{ request.session.user_data.picture }}" alt="User picture" class="rounded-circle" width="100">
+            <p>Click here to <a href="/sign-out" class="btn btn-link">Sign out</a></p>
+        </div>
+        {% else %}
+        <div class="mt-4">
+            <!-- Google Sign-In -->
+                <div id="g_id_onload"
+                    data-client_id="512753265261-hicrjc1ocn7umlln9d6s6h5pgun0v105.apps.googleusercontent.com"
+                    data-context="signin"
+                    data-ux_mode="popup"
+                    data-login_uri="http://localhost:8000/auth-receiver"
+                    data-auto_prompt="false">
+                </div>
+
+                <div class="g_id_signin"
+                    data-type="standard"
+                    data-shape="pill"
+                    data-theme="outline"
+                    data-text="signin_with"
+                    data-size="large"
+                    data-logo_alignment="left">
+                </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Bottom Left Image -->
+  
+    
+   
+    <img src="gopher.png" alt="Bottom Left Image" class="bottom-left-image">
+
+    
+
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+</body>
+</html>
