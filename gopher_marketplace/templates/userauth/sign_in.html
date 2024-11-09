@@ -16,16 +16,14 @@
             font-family: 'Arial', sans-serif;
         }
 
-        /* Marketplace text styling */
         .marketplace-text {
-            position: absolute;
+            position: fixed;
             top: 20px;
             left: 20px;
-            font-size: 4rem;
+            font-size: 5rem;
             font-weight: bold;
             color: #FFDA14;
             padding-left: 3%;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .g_id_signin {
@@ -85,6 +83,7 @@
             text-align: center;
         }
 
+
         /* Media Query for smaller screens */
         @media (max-width: 767px) {
             .marketplace-text {
@@ -113,7 +112,7 @@
 
     <!-- Centered Content -->
     <div class="centered-content">
-        <div class="welcome-text">Welcome, Gopher!</div>
+        <div class="display-3 welcome-text">Welcome, Gopher!</div>
         
         
         
@@ -150,8 +149,8 @@
     <!-- Bottom Left Image -->
   
     
-   
-    <img src="gopher.png" alt="Bottom Left Image" class="bottom-left-image">
+    {% load static %}
+    <img src="{% static 'gopher.png' %}" class = bottom-left-image>
 
     
 
