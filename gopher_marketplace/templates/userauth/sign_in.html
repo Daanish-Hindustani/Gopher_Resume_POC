@@ -114,8 +114,6 @@
     <div class="centered-content">
         <div class="display-3 welcome-text">Welcome, Gopher!</div>
         
-        
-        
         {% if request.session.user_data %}
         <div class="mt-4">
             <p>Hi {{ request.session.user_data.given_name }} 🙂</p>
@@ -133,7 +131,7 @@
                     data-login_uri="http://localhost:8000/auth-receiver"
                     data-auto_prompt="false">
                 </div>
-
+                {% csrf_token %}
                 <div class="g_id_signin"
                     data-type="standard"
                     data-shape="pill"

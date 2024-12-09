@@ -12,8 +12,11 @@
     - source myenv/bin/activate
  2. Create a .env file with local postgress db
     Note: if your using postgress but not docker change host name to local not db(use if using docker)
- 3. run docker-compose up --build 
-    Note: if you are running locally use python manage.py runserver 0.0.0.0:8000
+ 3. run docker-compose up --build (optional- if you are running docker)
+ 4. If you are not running docker make sure to run the migration commands(make sure postgress is running)
+      -python manage.py makemigrations
+      -python manage.py migrate
+    Note: if you are running locally use python manage.py runserver 0.0.0.0:8000 (make sure you are running postgress)
     
 ## Project overview
 - https://docs.google.com/document/d/1gOhVWaR7HDh7IOWJsWR9jCSXtPSMf91iCrLCiMsao-w/edit?usp=sharing
