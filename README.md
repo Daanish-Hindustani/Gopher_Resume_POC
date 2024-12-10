@@ -26,7 +26,12 @@
       - Name should be set to Gopher-marketplace
       - Authorized JavaScript origins should be set to http://127.0.0.1:8000
       - Authorized redirect URIs should be set to http://127.0.0.1:8000/auth-receiver
-      
+
+## Development
+ 1. Always make a branch before pushing to main 
+ 2. Don't leak any key, keep them in the .env file 
+ 3. Raise issues if there are any problem
+
 ## Project overview
 - https://docs.google.com/document/d/1gOhVWaR7HDh7IOWJsWR9jCSXtPSMf91iCrLCiMsao-w/edit?usp=sharing
 
