@@ -17,7 +17,16 @@
       -python manage.py makemigrations
       -python manage.py migrate
     Note: if you are running locally use python manage.py runserver 0.0.0.0:8000 (make sure you are running postgress)
-    
+ 5. Set up Google Auth
+   - Go to the API Console: https://console.cloud.google.com/apis/dashboard?inv=1&invt=AbjwVw
+   - From the projects list, select a project or create a new one.
+   - If the APIs & services page isn't already open, open the left side menu and select APIs & services.
+   - On the left, choose Credentials.
+   - Click Create credentials and then select API key.
+      - Name should be set to Gopher-marketplace
+      - Authorized JavaScript origins should be set to http://127.0.0.1:8000
+      - Authorized redirect URIs should be set to http://127.0.0.1:8000/auth-receiver
+      
 ## Project overview
 - https://docs.google.com/document/d/1gOhVWaR7HDh7IOWJsWR9jCSXtPSMf91iCrLCiMsao-w/edit?usp=sharing
 
