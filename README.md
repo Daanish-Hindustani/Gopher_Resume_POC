@@ -10,6 +10,7 @@
  1. Create a venv and install the requirments
     - python -m venv myenv
     - source myenv/bin/activate
+    - pip install -r requirements.txt
  2. Create a .env file with local postgress db
     Note: if your using postgress but not docker change host name to local not db(use if using docker)
  3. run docker-compose up --build (optional- if you are running docker)
