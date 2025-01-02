@@ -79,7 +79,7 @@ def auth_receiver(request):
             'picture': user_data.get('picture', ''),
             'auth_token': token.key
         }
-        
+        print('token',token)
         return redirect('market/')
         
     except ValueError as e:

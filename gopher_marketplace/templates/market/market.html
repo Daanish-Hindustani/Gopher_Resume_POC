@@ -121,41 +121,25 @@
     </header>
 
     <div class="container">
-        {% if product_data %}
-            {% if product_data.is_list %}
-                <h2>All Products</h2>
-                <div class="product-list">
-                    {% for product in product_data %}
-                        <div class="product-card">
-                            <img src="{{ product.image_url }}" alt="{{ product.name }}">
-                            <div class="product-info">
-                                <h3>{{ product.name }}</h3>
-                                <p>{{ product.description|truncatewords:20 }}</p>
-                                <p class="price">${{ product.price }}</p>
-                                <div class="product-actions">
-                                    <a href="{% url 'market' %}?product_id={{ product.id }}" class="btn">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            {% else %}
-                <div class="single-product">
-                    <h2>{{ product_data.name }}</h2>
+        {% if product_data.is_list %}
+            <h2>All Products</h2>
+            <div class="product-list">
+                {% for product in product_data.product_data %}
                     <div class="product-card">
-                        <img src="{{ product_data.image_url }}" alt="{{ product_data.name }}">
+                        <img src="{{ product.img }}" alt="{{ product.name }}">
                         <div class="product-info">
-                            <p>{{ product_data.description }}</p>
-                            <p class="price">${{ product_data.price }}</p>
+                            <h3>{{ product.name }}</h3>
+                            <p>{{ product.description }}</p>
+                            <p class="price">${{ product.price }}</p>
                             <div class="product-actions">
-                                <a href="{% url 'market' %}" class="btn">Back to Products</a>
+                                <a href="/marketplace/product/{{ product.id }}" class="btn">View Details</a>
                             </div>
                         </div>
                     </div>
-                </div>
-            {% endif %}
+                {% endfor %}
+            </div>
         {% else %}
-            <h2>No products found</h2>
+            <h2>No products available</h2>
         {% endif %}
     </div>
 
