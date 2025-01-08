@@ -85,6 +85,16 @@
             margin-bottom: 10px;
         }
 
+        .product-details .tag {
+            font-size: 14px;
+            padding: 5px 10px;
+            background-color: #FFCC00;
+            color: #9E1B32;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
         .product-actions {
             margin-top: 20px;
             display: flex;
@@ -129,17 +139,26 @@
 
         <!-- Right Column: Product Details -->
         <div class="product-details">
+            <!-- Tags: Category and Sold Status -->
+            <div>
+                <span class="tag">{{ product.category }}</span>
+                {% if product.sold %}
+                    <span class="tag" style="background-color: #7A142A; color: white;">Sold</span>
+                {% else %}
+                    <span class="tag" style="background-color: #4CAF50; color: white;">Available</span>
+                {% endif %}
+            </div>
+
             <h1>{{ product.name|default:"Product Name" }}</h1>
             <p class="price">${{ product.price|default:"0.00" }}</p>
             <p class="course"><strong>Course:</strong> {{ product.course_number|default:"N/A" }}</p>
             <p class="professor"><strong>Professor:</strong> {{ product.professor|default:"N/A" }}</p>
-            <p>{{ product.description|default:"No description provided." }}</p>
-            
-            <p class="upload-day"><strong>Uploaded on:</strong> {{ product.created_at|date:"M d, Y" }}</p>
+            <p><strong>Description:</strong> {{ product.description|default:"No description provided." }}</p>
+            <p class="email"><strong>Contact Seller:</strong> {{ product.email }}</p>
+            <p class="upload-day"><strong>Uploaded on:</strong> {{ product.created_at|date:"M d, Y"|default:"N/A"  }}</p>
 
             <div class="product-actions">
                 <a href="/market" class="btn">Back to Market</a>
-                <a href="#" class="btn">Contact Seller</a>
             </div>
         </div>
     </div>
