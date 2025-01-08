@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name|default:"Product Name" }} - University of Minnesota Marketplace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #F4F4F4;
+            color: #3B3B3B;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #9E1B32; /* Maroon */
+            color: #FFCC00; /* Gold */
+            padding: 20px 0;
+            text-align: center;
+            font-size: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .product-image {
+            width: 45%;
+            margin-right: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFF;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .product-details {
+            width: 50%;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-details h1 {
+            color: #9E1B32;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-details .price {
+            font-size: 26px;
+            color: #FFCC00;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .product-details p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .product-details .course,
+        .product-details .professor,
+        .product-details .upload-day {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .product-actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            background-color: #9E1B32; /* Maroon */
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #7A142A; /* Darker Maroon */
+        }
+
+        footer {
+            background-color: #9E1B32; /* Maroon */
+            color: #FFCC00; /* Gold */
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        University of Minnesota Marketplace
+    </header>
+
+    <div class="container">
+        <!-- Left Column: Product Image -->
+        <div class="product-image">
+            <img src="{{ product.img }}" alt="{{ product.name }}">
+        </div>
+
+        <!-- Right Column: Product Details -->
+        <div class="product-details">
+            <h1>{{ product.name|default:"Product Name" }}</h1>
+            <p class="price">${{ product.price|default:"0.00" }}</p>
+            <p class="course"><strong>Course:</strong> {{ product.course_number|default:"N/A" }}</p>
+            <p class="professor"><strong>Professor:</strong> {{ product.professor|default:"N/A" }}</p>
+            <p>{{ product.description|default:"No description provided." }}</p>
+            
+            <p class="upload-day"><strong>Uploaded on:</strong> {{ product.created_at|date:"M d, Y" }}</p>
+
+            <div class="product-actions">
+                <a href="/market" class="btn">Back to Market</a>
+                <a href="#" class="btn">Contact Seller</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 University of Minnesota - Marketplace
+    </footer>
+</body>
+</html>

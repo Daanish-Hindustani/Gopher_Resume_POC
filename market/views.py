@@ -13,16 +13,22 @@ host = config('HOST')
 
 class MarketView(View):
 
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
         print('token', request.session['user_data']['auth_token'])
         token = request.session['user_data']['auth_token']
-        product_id = request.GET.get('product_id')
+        
+        # Get the product_id from URL arguments
+        product_id = kwargs.get('product_id')
+
         if product_id:
-            product_data = load_item(product_id, token)  # Pass token to load_item
-            return render(request, 'market/market.html', {'product_data': product_data})
+            product = load_item(product_id, token)  
+            return render(request, 'market/product_detail.html', {
+                'product': product,
+            })
         else:
-            products_data = load_items(token)  # Pass token to load_items
-            return render(request, 'market/market.html', {'product_data': products_data})
+            product_data = load_items(token)  # Get all products
+            return render(request, 'market/market.html', {'product_data': product_data})
+
 
 
 def load_item(product_id, token):
